@@ -7,15 +7,14 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<body>
 
-<header>Code Quiz <br>
-
-    <button class="start-btn">Start</button> <br>
+<header>Code Quiz  <button class="start-btn">Start</button>
 
 <h1 class="time" style="text-align:center;"></h1>
 
 </header>
+
+<body>
 
     <main>
 
@@ -29,7 +28,8 @@
             <label for="A">J-Query</label> <br>
 
         <input type= "checkbox" id="B1" name="B" value="html">
-            <label for="B">HTML</label> <br>
+            <label for="B">HTML</label> 
+            <p id="text1" style="display:none">Correct!</p> <br>
 
         <input type= "checkbox" id= "C1" name="C" value="css">
             <label for="C">CSS</label> <br>
@@ -110,6 +110,17 @@
         </div>
 
     </section>
+
+    <form id="initials">
+        Initials<br> <input type="text" name="initials">
+        <br>
+
+        <button class="submit-btn5">Submit</button>
+     </form>
+
+     <section id= "highScores">
+         <p>Here are the High Scores!</p>
+     </section>
 
     </main>
     

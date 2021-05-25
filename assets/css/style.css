@@ -1,22 +1,59 @@
 header{
-    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: navy;
     font-size: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
+
+.start-btn{
+    border-style: solid;
+    border-width: 2px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 300px;
+
+}
+
 
 .time{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    align-items: right;
+    padding: 0;
+    margin-left: 300px;
+
 }
 
 .Q-container {
-    display:flex;
-    flex-direction: column;
+    width: 800px;
+    max-width: 80%;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    background-color: palegoldenrod;
     align-items: center;
-    text-align: center;
-    justify-content: flex-start;
-    margin: 0;
+    text-align: left;
+    margin-left: 300px;
+    display: none;
+    color: navy;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#initials {
+    width: 800px;
+    max-width: 80%;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    background-color: palegoldenrod;
+    align-items: center;
+    text-align: left;
+    margin-left: 300px;
     display: none;
     color: navy;
     border-style: solid;
@@ -25,55 +62,21 @@ header{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#Q1-answers {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-    text-align: center;
+#highScores {
+    width: 800px;
+    max-width: 80%;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    background-color: palegoldenrod;
     align-items: center;
-    justify-content: flex-start;
-    margin: 0;
-    display:flex;
-    flex-direction: column;
+    text-align: left;
+    margin-left: 300px;
     color: navy;
-    width: 50%;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#Q2-answers {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-    text-align: center;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0;
-    display:flex;
-    flex-direction: column;
-    color: navy;
-    width: 50%;
-}
-
-#Q3-answers {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-    text-align: center;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0;
-    display:flex;
-    flex-direction: column;
-    color: navy;
-    width: 50%;
-}
-
-#Q4-answers {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-    text-align: center;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0;
-    display:flex;
-    flex-direction: column;
-    color: navy;
-    width: 50%;
-}
 

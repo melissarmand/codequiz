@@ -11,11 +11,17 @@ var Submit1 = document.querySelector(".submit-btn1");
 var Submit2 = document.querySelector(".submit-btn2");
 var Submit3 = document.querySelector(".submit-btn3");
 var Submit4 = document.querySelector(".submit-btn4");
+var Submit5 = document.querySelector(".submit-btn5");
 
-var answer1 = document.querySelector("#B1:checked") !==null;
-var answer2 = document.querySelector("#C2:checked") !==null;
-var answer3 = document.querySelector("#D3:checked") !==null;
-var answer4 = document.querySelector("#A4:checked") !==null;
+var answer1 = document.getElementById("B1");
+var answer2 = document.getElementById("C2");
+var answer3 = document.getElementById("D3");
+var answer4 = document.getElementById("A4");
+
+var initials= document.querySelector("#initials");
+var highScores= document.querySelector("#highScores")
+
+
 
 var answerCount = localStorage.getItem("correctanswers")
 
@@ -48,19 +54,23 @@ function showQuestion1() {
     const cb = document.getElementById('B1');
     console.log(cb.value)
 
+
  Submit1.onclick = () => {
-    if (answer1 == true) {
-        console.log("That is correct!")
+    if (answer1.checked === true) {
         showQuestion2();
-    } else console.log("wrong!")
+        console.log("This is correct!")
+        save1();
+        showQuestion2();
+    } else if (answer1.checked === false) {
+        console.log("wrong!")
      const result = cb.value; 
-     answer1.textContent = "That is Correct!"
+     save1();
      showQuestion2();
-}
-localStorage.setItem("correctanswers", answerCount);
+}}
 }
 
 function showQuestion2() {
+    Question1.style.display= "none";
     Question2.style.display= "inline-block";
     console.log("The second question is displayed");
     
@@ -68,18 +78,20 @@ function showQuestion2() {
     console.log(cb.value)
 
  Submit2.onclick = () => {
-    if (answer2 === false) {
+    if (answer2.checked === true) {
         console.log("That is correct!")
+        save2();
         showQuestion3();
-    } else console.log("wrong!")
-     const result = cb.value;   
+    } else if (answer2.checked === false) {
+        console.log("wrong!")
+     const result = cb.value;
+     save2();   
      showQuestion3(); 
-}
-localStorage.setItem("correctanswers", answerCount);
-
+}}
 }
 
 function showQuestion3() {
+    Question2.style.display= "none";
     Question3.style.display= "inline-block";
     console.log("The third question is displayed");
     
@@ -87,17 +99,20 @@ function showQuestion3() {
     console.log(cb.value)
 
  Submit3.onclick = () => {
-    if (answer3 === false) {
+    if (answer3.checked === true) {
         console.log("That is correct!")
+        save3();
         showQuestion4();
-    } else console.log("wrong!")
-     const result = cb.value;  
-     showQuestion1();  
-}
-localStorage.setItem("correctanswers", answerCount);
+    } else if (answer3.checked === false) {
+        console.log("This is wrong!");
+        const result = cb.value; 
+        save3();
+        showQuestion4();
+    }}
 }
 
 function showQuestion4() {
+    Question3.style.display= "none";
     Question4.style.display= "inline-block";
     console.log("The first question is displayed");
     
@@ -105,20 +120,59 @@ function showQuestion4() {
     console.log(cb.value)
 
  Submit4.onclick = () => {
-    if (answer4 === false) {
+    if (answer4.checked === true) {
         console.log("That is correct!")
-    } else console.log("wrong!")
-     const result = cb.value;  
+        save4();
+        endingFunction();
+    } else if (answer4.checked === false) {
+        console.log("wrong!");
+        const result = cb.value;  
+        save4();
+        endingFunction();
      
-     endingFunction();
-}
-localStorage.setItem("correctanswers", answerCount);
+    }}
 }
 
 
 function endingFunction() {
-
-    
-
+    Question4.style.display= "none";
+    initials.style.display= "inline-block";
+    Submit5.onclick = () => {
+    }
 }
+
+function showHighScores() {
+    initials.style.display= "none";
+    highScores.style.display= "inline-block";
+}
+
+function save1 (){
+    var checkbox = document.getElementById ("B1");
+    localStorage.setItem("B1", checkbox.checked);
+}
+var checked = JSON.parse(localStorage.getItem("B1"));
+    document.getElementById("B1").checked = checked
+
+function save2 (){
+    var checkbox = document.getElementById ("C2");
+    localStorage.setItem("C2", checkbox.checked);
+    }
+var checked = JSON.parse(localStorage.getItem("C2"));
+    document.getElementById("C2").checked = checked
+
+function save3 (){
+    var checkbox = document.getElementById ("D3");
+    localStorage.setItem("D3", checkbox.checked);
+}
+var checked = JSON.parse(localStorage.getItem("D3"));
+    document.getElementById("D3").checked = checked
+
+function save4 (){
+    var checkbox = document.getElementById ("A4");
+    localStorage.setItem("A4", checkbox.checked);
+}
+var checked = JSON.parse(localStorage.getItem("A4"));
+    document.getElementById("A4").checked = checked
+
+
 
