@@ -19,9 +19,10 @@ var answer3 = document.getElementById("D3");
 var answer4 = document.getElementById("A4");
 
 var initials= document.querySelector("#initials");
-var highScores= document.querySelector("#highScores")
+var highScores= document.querySelector("#highScores");
+var score= 0;
 
-
+var resetButton = document.querySelector(".reset");
 
 var answerCount = localStorage.getItem("correctanswers")
 
@@ -33,6 +34,7 @@ function startGame() {
    setTime(), showQuestion1();
 }
 
+
 function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
@@ -40,6 +42,15 @@ function setTime() {
         if (secondsLeft === 0) {
             clearInterval (timerInterval);
             timeEl.textContent = "Time is up!"
+            stopGame();
+            function stopGame() {
+                Question1.style.display= "none";
+                Question2.style.display= "none";
+                Question3.style.display= "none";
+                Question4.style.display= "none";
+            
+                endingFunction();
+            }
 
         }
     }, 1000);
@@ -61,6 +72,7 @@ function showQuestion1() {
         console.log("This is correct!")
         save1();
         showQuestion2();
+        score++;
     } else if (answer1.checked === false) {
         console.log("wrong!")
      const result = cb.value; 
@@ -82,6 +94,7 @@ function showQuestion2() {
         console.log("That is correct!")
         save2();
         showQuestion3();
+        score++;
     } else if (answer2.checked === false) {
         console.log("wrong!")
      const result = cb.value;
@@ -103,6 +116,7 @@ function showQuestion3() {
         console.log("That is correct!")
         save3();
         showQuestion4();
+        score++
     } else if (answer3.checked === false) {
         console.log("This is wrong!");
         const result = cb.value; 
@@ -124,6 +138,8 @@ function showQuestion4() {
         console.log("That is correct!")
         save4();
         endingFunction();
+        score++
+        clearInterval(timerInterval);
     } else if (answer4.checked === false) {
         console.log("wrong!");
         const result = cb.value;  
@@ -134,17 +150,32 @@ function showQuestion4() {
 }
 
 
+
+//function results () {
+   // var initials = document.getElementById ('initials').value;
+    //document.write(initials + "'s score")
+//}
+
+
 function endingFunction() {
     Question4.style.display= "none";
     initials.style.display= "inline-block";
-    Submit5.onclick = () => {
+    Submit5.onclick = () => {   
     }
+    showHighScores ();
 }
 
 function showHighScores() {
     initials.style.display= "none";
     highScores.style.display= "inline-block";
+    highScores.textContent= "Your score is " + score;
 }
+
+function reset() {
+    score = 0;
+}
+
+resetButton.addEventListener("click", reset)
 
 function save1 (){
     var checkbox = document.getElementById ("B1");
